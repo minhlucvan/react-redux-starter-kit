@@ -46,7 +46,7 @@ export default (initialState = {}) => {
 
   store.sagaTasks = {}
 
-  browserHistory.listen(() => {updateLocation(store)})
+  browserHistory.listen(updateLocation(store))
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
