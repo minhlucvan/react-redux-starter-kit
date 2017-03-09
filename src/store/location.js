@@ -1,4 +1,9 @@
 // ------------------------------------
+// Depedentces
+// ------------------------------------
+import { browserHistory } from 'react-router'
+
+// ------------------------------------
 // Constants
 // ------------------------------------
 export const LOCATION_CHANGE = 'LOCATION_CHANGE'
@@ -6,11 +11,15 @@ export const LOCATION_CHANGE = 'LOCATION_CHANGE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function locationChange (location = '/') {
+export function locationChange (location = {}) {
   return {
     type    : LOCATION_CHANGE,
     payload : location
   }
+}
+
+export function changeLocation(nextLocation = {}){
+  browserHistory.push(nextLocation)
 }
 
 // ------------------------------------
@@ -23,7 +32,7 @@ export const updateLocation = ({ dispatch }) => {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = null
+const initialState = browserHistory.location
 export default function locationReducer (state = initialState, action) {
   return action.type === LOCATION_CHANGE
     ? action.payload
