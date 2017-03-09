@@ -118,7 +118,8 @@ The application structure presented in this boilerplate is **fractal**, where fu
 │   │       └── routes **    # Fractal sub-routes (** optional)
 │   ├── store                # Redux-specific pieces
 │   │   ├── createStore.js   # Create and instrument redux store
-│   │   └── reducers.js      # Reducer registry and injection
+│   │   ├── reducers.js      # Reducer registry and injection
+│   │   └── middlewares.js    # middleware injection
 │   └── styles               # Application-wide styles (generally settings)
 └── tests                    # Unit tests
 ```
